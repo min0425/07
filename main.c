@@ -3,20 +3,26 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int i;
-int main(void)
+void sub(void);
+int main(void) 
 {
-	for ( i=0; i<5; i++ )
-	{//같은 지역변수 i이기 때문에 f()에 의해 이미 i가 지금 10이 되어버려서 i<5라는 조건이 성립되지 않고 따라사 한번만 반복하고 끝남. 
-		f();
-	}
+	int i;
+	for(i=0;i<3;i++)
+	sub();
 	return 0;
+	
 }
-void f(void)
+
+void sub(void)
 {
-	for ( i=0; i<10; i++)
-	printf("#");
+	int auto_count = 0;
+	static int static_count = 0;
+	auto_count++;
+	static_count++;
+	printf("auto_count=%d\n",auto_count);
+	printf("static_count=%d\n",static_count);
 }
+
 
 
 
